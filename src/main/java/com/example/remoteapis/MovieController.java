@@ -32,4 +32,11 @@ public class MovieController {
         String url="https://api.themoviedb.org/3/movie/"+id+"?api_key=91c5cd0e93f10322c98c73be07f53721";
         return restTemplate.getForObject(url,MovieResponse.class);
     }
+
+    //calling local APIs
+    @GetMapping("/get-student")
+    public Object getStudent(@RequestParam ("id") int regNo){
+        String url="http://localhost:9999/student/get?q="+regNo;
+        return restTemplate.getForObject(url,Object.class);
+    }
 }
